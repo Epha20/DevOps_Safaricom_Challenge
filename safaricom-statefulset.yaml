@@ -1,0 +1,40 @@
+apiversion: apps/v1
+kind: StatefulSet
+metadata:
+  name: safaricom-nginx-sts
+spec:
+  serviceName: safaricom-nginx-svcs
+  replicas: 1
+  selector:
+    matchLabels:
+      app: safraicom-nginx-app
+  template:
+    metadata:
+      labels:
+        app: safaricom-nginx-app
+  spec:
+      containers:
+          name: nginx-slim
+          image: registry.k8s.io/nginx-slim:0.8
+      ports:
+        name: nginx
+        containerPort: 8080
+        protocol: TCP
+      volumeMounts:
+        - name:  safaricom-nginx-data
+          mountPath: /C
+      volumes:
+         - name:  safaricom-nginx-data
+      volumeClaimTemplates:
+      - metadata:
+        name: safaricom-data-nginx-pvc
+        
+           
+       
+
+
+
+
+
+
+

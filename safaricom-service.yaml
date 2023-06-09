@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: safraicom-nginx-svc
+spec:
+  selector:
+    app: safaricom-nginx-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      clusterIP: None
+  
+      
