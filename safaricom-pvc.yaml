@@ -6,7 +6,7 @@ metadata:
   labels:
     app: safaricom-nginx-app
 spec:
-  storageClassName: rook-ceph-block
+  storageClassName: standard
   accessModes:
   - ReadWriteOnce
   resources:
